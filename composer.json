@@ -1,0 +1,7 @@
+{
+    "name": "project/cv-builder",
+    "description": "Professional CV/Resume Builder Web Application",
+    "require": {
+        "dompdf/dompdf": "^2.0"
+    }
+}

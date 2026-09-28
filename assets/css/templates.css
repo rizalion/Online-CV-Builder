@@ -1,0 +1,35 @@
+/* ============================================
+   Template Gallery Styles
+   ============================================ */
+
+.template-select-card {
+    text-align: center;
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.template-select-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary);
+}
+
+.template-thumb {
+    height: 220px;
+    background: var(--gradient-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--text-tertiary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.template-select-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.template-select-card p {
+    font-size: 0.82rem;
+}

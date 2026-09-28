@@ -1,0 +1,546 @@
+/* ============================================
+   Multi-Step Form Styles
+   ============================================ */
+
+/* ── Progress Bar ────────────────────────────── */
+.form-wizard {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 0 60px;
+}
+
+.wizard-progress {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    position: relative;
+    padding: 0 20px;
+}
+
+.wizard-progress::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    right: 40px;
+    height: 3px;
+    background: var(--border-color);
+    z-index: 0;
+}
+
+.wizard-progress .progress-fill {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    height: 3px;
+    background: var(--gradient-primary);
+    z-index: 1;
+    transition: width var(--transition-slow);
+    border-radius: 2px;
+}
+
+.wizard-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.wizard-step .step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    border: 3px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    transition: all var(--transition-base);
+    margin-bottom: 8px;
+}
+
+.wizard-step.active .step-circle {
+    border-color: var(--primary);
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+.wizard-step.completed .step-circle {
+    border-color: #10b981;
+    background: #10b981;
+    color: white;
+}
+
+.wizard-step.completed .step-circle i {
+    font-size: 0.9rem;
+}
+
+.wizard-step .step-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+    max-width: 80px;
+    transition: color var(--transition-fast);
+}
+
+.wizard-step.active .step-label {
+    color: var(--primary);
+}
+
+.wizard-step.completed .step-label {
+    color: #10b981;
+}
+
+/* ── Step Panels ─────────────────────────────── */
+.step-panel {
+    display: none;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.step-panel.active {
+    display: block;
+}
+
+.step-header {
+    margin-bottom: 32px;
+}
+
+.step-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.step-header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ── Dynamic Rows ────────────────────────────── */
+.dynamic-section {
+    margin-bottom: 24px;
+}
+
+.dynamic-entry {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 16px;
+    position: relative;
+    transition: all var(--transition-base);
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.dynamic-entry:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.entry-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.entry-number {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--primary);
+    background: var(--primary-glow);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+}
+
+.btn-remove-entry {
+    background: none;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    font-size: 0.85rem;
+}
+
+.btn-remove-entry:hover {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.btn-add-entry {
+    width: 100%;
+    padding: 14px;
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-add-entry:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-glow);
+}
+
+/* ── Skills Tag Input ────────────────────────── */
+.skills-input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--bg-surface);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    min-height: 48px;
+    cursor: text;
+    transition: all var(--transition-fast);
+}
+
+.skills-input-container:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: var(--primary-glow);
+    color: var(--primary);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 500;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.skill-tag .remove-skill {
+    cursor: pointer;
+    font-size: 0.7rem;
+    opacity: 0.7;
+    transition: opacity var(--transition-fast);
+}
+
+.skill-tag .remove-skill:hover {
+    opacity: 1;
+}
+
+.skill-input-field {
+    border: none;
+    background: transparent;
+    outline: none;
+    flex: 1;
+    min-width: 120px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.skill-input-field::placeholder {
+    color: var(--text-tertiary);
+}
+
+/* ── Proficiency Slider ──────────────────────── */
+.proficiency-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.proficiency-slider {
+    flex: 1;
+    appearance: none;
+    height: 6px;
+    background: var(--border-color);
+    border-radius: 3px;
+    outline: none;
+}
+
+.proficiency-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+
+.proficiency-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary);
+    min-width: 90px;
+    text-align: right;
+}
+
+/* ── Profile Picture Upload ──────────────────── */
+.profile-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.upload-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px dashed var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    background: var(--bg-surface-hover);
+}
+
+.upload-preview:hover {
+    border-color: var(--primary);
+    background: var(--primary-glow);
+}
+
+.upload-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-preview .upload-icon {
+    font-size: 2rem;
+    color: var(--text-tertiary);
+}
+
+.upload-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* ── Navigation Buttons ──────────────────────── */
+.wizard-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+}
+
+.wizard-nav .btn {
+    min-width: 140px;
+}
+
+/* ── Present Checkbox ────────────────────────── */
+.present-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.present-checkbox input[type="checkbox"] {
+    accent-color: var(--primary);
+}
+
+.present-checkbox label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+/* ── Accordion Sections (Step 4) ─────────────── */
+.section-accordion {
+    margin-bottom: 16px;
+}
+
+.accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+}
+
+.accordion-trigger:hover {
+    border-color: var(--primary);
+    background: var(--primary-glow);
+}
+
+.accordion-trigger.open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: var(--primary);
+}
+
+.accordion-trigger .chevron {
+    transition: transform var(--transition-fast);
+}
+
+.accordion-trigger.open .chevron {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    background: var(--bg-surface);
+}
+
+.accordion-content.open {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* ── Template Selection Cards ────────────────── */
+.template-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.template-card {
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    background: var(--bg-surface);
+}
+
+.template-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.template-card.selected {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow), var(--shadow-lg);
+}
+
+.template-card .template-preview {
+    height: 200px;
+    background: var(--bg-surface-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.template-card .template-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.template-card .template-info {
+    padding: 16px;
+}
+
+.template-card .template-name {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.template-card .template-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.template-card .template-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    background: var(--primary-glow);
+    color: var(--primary);
+}
+
+.dark-mode-toggle-template {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.dark-mode-toggle-template input[type="checkbox"] {
+    accent-color: var(--primary);
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 768px) {
+    .form-wizard {
+        padding: 20px 0 40px;
+    }
+
+    .wizard-progress {
+        padding: 0;
+    }
+
+    .wizard-step .step-label {
+        font-size: 0.65rem;
+        max-width: 60px;
+    }
+
+    .wizard-step .step-circle {
+        width: 34px;
+        height: 34px;
+        font-size: 0.75rem;
+    }
+
+    .dynamic-entry {
+        padding: 16px;
+    }
+
+    .wizard-nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .wizard-nav .btn {
+        width: 100%;
+    }
+
+    .template-grid {
+        grid-template-columns: 1fr;
+    }
+}

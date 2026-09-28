@@ -1,0 +1,122 @@
+.max-w-500 { max-width: 500px; margin: 0 auto; }
+.step { display: none; }
+.step.active { display: block; }
+
+.wizard-progress {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.wizard-progress::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--border-color);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.progress-bar-fill {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    background: var(--primary-color);
+    transform: translateY(-50%);
+    z-index: 1;
+    transition: width 0.3s ease;
+}
+
+.progress-step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 2;
+    position: relative;
+    color: var(--text-color);
+}
+
+.progress-step.active {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.progress-step.completed {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.dynamic-row {
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    position: relative;
+    background: var(--card-bg);
+}
+
+.remove-row {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #dc3545;
+    cursor: pointer;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 20px;
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.skill-tag .remove-skill {
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.template-card {
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.template-card.selected {
+    border-color: var(--primary-color);
+}
+
+#imagePreview {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: none;
+    margin-top: 10px;
+}
+
+.iframe-container {
+    width: 100%;
+    height: 800px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
